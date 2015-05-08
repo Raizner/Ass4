@@ -18,7 +18,7 @@ Stats::Stats(const string& pathToEncryptedFile, ParseText& parser){
 int Stats::calculateFitness(string key){
 	int fitnsess = 0;
 
-	
+
 
 	for(myMap::iterator i = occurencies.begin(); i != occurencies.end(); i++) {
 		// iterator->first = key
@@ -37,9 +37,12 @@ int Stats::calculateFitness(string key){
 		switch (current.size())
 		{
 		case 1:
-			if (abs( i->second - parser->monogramFre[current])  < 0.3)
+			if (parser->monogramFre.find(current) != parser->monogramFre.end())
 			{
-				fitnsess += 1;
+				if (abs( i->second - parser->monogramFre[current])  < 0.1)
+				{
+					fitnsess += 1;
+				}
 			}
 			if (abs( i->second - parser->monogramFre[current])  < 0.05)
 			{
@@ -47,28 +50,36 @@ int Stats::calculateFitness(string key){
 			}
 			break;
 		case 2:
-			if (abs( i->second - parser->monogramFre[current])  < 0.3)
+			if (parser->bigramsFreIncludingSpaces.find(current) != parser->bigramsFreIncludingSpaces.end())
 			{
-				fitnsess += 1;
-			}
-			if (abs( i->second - parser->monogramFre[current])  < 0.05)
-			{
-				fitnsess += 5;
+				if (abs( i->second - parser->bigramsFreIncludingSpaces[current])  < 0.1)
+				{
+					fitnsess += 1;
+				}
+				if (abs( i->second - parser->bigramsFreIncludingSpaces[current])  < 0.05)
+				{
+					fitnsess += 5;
+				}
 			}
 			break;
 		case 3:
-			if (abs( i->second - parser->monogramFre[current])  < 0.3)
+			if (parser->triagrmsFreIncludingSpaces.find(current) != parser->triagrmsFreIncludingSpaces.end())
 			{
-				fitnsess += 1;
-			}
-			if (abs( i->second - parser->monogramFre[current])  < 0.05)
-			{
-				fitnsess += 5;
+				if (abs( i->second - parser->triagrmsFreIncludingSpaces[current])  < 0.1)
+				{
+					fitnsess += 1;
+				}
+				if (abs( i->second - parser->triagrmsFreIncludingSpaces[current])  < 0.05)
+				{
+					fitnsess += 5;
+				}
 			}
 			break;
 		default:
 			break;
 		}
+
+
 	}
 
 	return fitnsess;

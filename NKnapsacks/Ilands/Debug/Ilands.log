@@ -1,25 +1,25 @@
-﻿Build started 5/8/2015 6:08:16 PM.
+﻿Build started 5/8/2015 6:21:55 PM.
      1>Project "C:\Users\yraizner\Documents\GitHub\Ass4\NKnapsacks\Ilands\Ilands.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Islands.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt stats.cpp
          stats.cpp
      1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(28): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(40): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(42): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(28) : definition of 'i' ignored
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(23) : definition of 'i' used
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(44): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(47): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(28) : definition of 'i' ignored
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(23) : definition of 'i' used
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(50): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(55): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(28) : definition of 'i' ignored
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(23) : definition of 'i' used
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(54): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(59): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(28) : definition of 'i' ignored
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(23) : definition of 'i' used
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(60): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(68): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(28) : definition of 'i' ignored
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(23) : definition of 'i' used
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(64): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(72): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(28) : definition of 'i' ignored
                  c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\stats.cpp(23) : definition of 'i' used
        Link:
@@ -37,4 +37,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.94
+Time Elapsed 00:00:01.55
