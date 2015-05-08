@@ -1,3 +1,6 @@
+#ifndef HHHH
+#define HHHH
+
 #include <stdarg.h>
 #include <string>
 #include <iostream>					// for cout etc.
@@ -26,4 +29,4 @@ using namespace std;				// polluting global namespace, but hey...
 
 
 
-
+#endif

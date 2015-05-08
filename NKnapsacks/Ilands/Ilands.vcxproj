@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CeaserCypher.cpp" />
+    <ClCompile Include="Crypt.cpp" />
     <ClCompile Include="Islands.cpp" />
     <ClCompile Include="knapsack.cpp" />
     <ClCompile Include="parseText.cpp" />
