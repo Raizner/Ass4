@@ -74,7 +74,8 @@ class Crypt {
 	ga_vector pop_alpha, pop_beta;
 	ga_vector *population, *buffer;
 
-
+	Stats* stats;
+	ParseText* parser;
 public:
 
 	/*
@@ -102,9 +103,12 @@ public:
 		firstTimeToRunSuS = true;
 		fitnessMin=10000;
 		fitnessMax=0;
+
+		parser = new ParseText();
+		stats = new Stats("c:\\temp\\text\\encryptedText.txt", *parser);
 	}
 
-	void initialize(int selection, int survivability, int populationPerIsland, double elitismeRate, int epocLength, int migrationFromEachIslands){
+	void initialize(int selection, int survivability, int populationPerIsland, double elitismeRate, int epocLength, int migrationFromEachIslands, Stats &stats){
 
 		this->GA_POPSIZE = populationPerIsland;
 		GA_ELITRATE = elitismeRate;
@@ -112,7 +116,7 @@ public:
 		this->migrationFromEachIslands = migrationFromEachIslands;
 		this->selection = selection;
 		this->survivability = survivability;		
-
+		this->stats = &stats;
 		return;
 
 	}
@@ -160,9 +164,8 @@ public:
 
 		for (int i=0; i<GA_POPSIZE; i++) {
 			fitness = 0;
-			for (int j=0; j<tsize; j++) {
-				fitness += abs(int(population[i].str[j] - target[j]));
-			}
+
+			fitness = stats->calculateFitness(population[i].str);
 
 			population[i].fitness = fitness;
 		}
@@ -313,6 +316,7 @@ public:
 		srand(unsigned(time(NULL)));
 
 		if (firstTimeToInitiatePopulation){
+			
 			firstTimeToInitiatePopulation = false;
 			init_population(pop_alpha, pop_beta);
 			population = &pop_alpha;

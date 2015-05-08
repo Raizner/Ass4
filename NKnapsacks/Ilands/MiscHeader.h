@@ -8,7 +8,7 @@
 #include <algorithm>				// for sort algorithm
 #include <time.h>					// for random seed
 #include <math.h>					// for abs()
-
+#include "Stats.h"
 #define NUMBER_OF_QUEENS 11
 #define MAX_NUMBER_OF_ITEMS 28
 

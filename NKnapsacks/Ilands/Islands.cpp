@@ -90,7 +90,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	parser.parseTextLunch("C:\\temp\\freq.txt");
 	string temp = "nyrfcetpxsuawdgikhqjzombvl";
-	CeaserCypher cc(temp, "c:\\temp\\text\\input.txt", "c:\\temp\\text\\output.txt");
+	CeaserCypher cc(temp, "c:\\temp\\text\\input.txt", "c:\\temp\\text\\encryptedText.txt");
 	cc.createCypheredText();
 
 	return 0;
