@@ -11,6 +11,7 @@ using namespace std;
 class Stats {
 
 	ParseText* parser;
+	int counter ;
 	
 public :
 	Stats(const string& pathToEncryptedFile, ParseText& parser);
