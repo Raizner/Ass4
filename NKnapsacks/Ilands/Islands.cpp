@@ -5,6 +5,7 @@
 #include "Islands.h"
 #include <stdarg.h>
 #include "parseText.h"
+#include "Stats.h"
 
 
 int iteratorOfRuns=0;
@@ -86,14 +87,14 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 
-	ParseText parser;
+	/*ParseText parser;
 
 	parser.parseTextLunch("C:\\temp\\freq.txt");
 	string temp = "nyrfcetpxsuawdgikhqjzombvl";
 	CeaserCypher cc(temp, "c:\\temp\\text\\input.txt", "c:\\temp\\text\\output.txt");
 	cc.createCypheredText();
 
-	return 0;
+	return 0;*/
 
 	/*
 
@@ -108,6 +109,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	2 - GENITOR
 
 	*/
+	Stats stat("c:\\temp\\text.txt");
 	Islands<knapsack> newIslands(3, 2000, 0.1f, 50, 0,0,1,1,1,2,1);
 
 	newIslands.evolve();

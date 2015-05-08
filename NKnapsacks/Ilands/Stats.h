@@ -8,11 +8,11 @@ using namespace std;
 
 class Stats {
 
-	
+	int counter ;
 	
 public :
 	Stats(string pathToEncryptedFile);
-	map<string, int> occurencies;
+	map<string, double> occurencies;
 };
 
 #endif

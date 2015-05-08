@@ -18,6 +18,8 @@ public:
 	CeaserCypher(string& key,const string& pathToFile,const string& pathToOutput);
 	void createCypheredText();
 
+
+	
 };
 
 #endif
