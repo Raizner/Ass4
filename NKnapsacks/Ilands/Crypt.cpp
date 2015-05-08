@@ -56,7 +56,7 @@ typedef vector<ga_struct> ga_vector;// for brevity
 
 
 
-class strings {
+class Crypt {
 
 	int GA_POPSIZE;
 	double GA_ELITRATE;
@@ -90,7 +90,7 @@ public:
 	1 - GENITOR
 
 	*/
-	strings(){
+	Crypt(){
 		GA_POPSIZE = 2000;
 		GA_ELITRATE = 0.15f;
 		GA_MAXITER = 16242;
@@ -134,7 +134,16 @@ public:
 			citizen.str.erase();
 
 			for (int j=0; j<tsize; j++)
-				citizen.str += (rand() % 90) + 32;
+			{
+				citizen.str = GA_TARGET;
+				int tempFirst = rand() % tsize;
+				int tempSecond = rand() % tsize;
+				char temp = citizen.str[tempFirst];
+
+				citizen.str[tempFirst] = citizen.str[tempSecond];
+				citizen.str[tempSecond] = citizen.str[tempFirst];
+
+			}
 
 			population.push_back(citizen);
 		}
@@ -142,6 +151,7 @@ public:
 		buffer.resize(GA_POPSIZE);
 	}
 
+	//todo: Change
 	void calc_fitness(ga_vector &population)
 	{
 		string target = GA_TARGET;

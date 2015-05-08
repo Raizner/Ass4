@@ -1,6 +1,6 @@
 // Ilands.cpp : Defines the entry point for the console application.
 //
-
+#include "Crypt.cpp"
 #include "stdafx.h"
 #include "Islands.h"
 #include <stdarg.h>

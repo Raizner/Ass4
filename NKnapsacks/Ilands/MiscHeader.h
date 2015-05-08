@@ -14,7 +14,7 @@
 
 #define GA_MUTATIONRATE	0.25f		// mutation rate
 #define GA_MUTATION		RAND_MAX * GA_MUTATIONRATE
-#define GA_TARGET		std::string("Hello world!")
+#define GA_TARGET		std::string("abcdefghijklmnopqrstuvwxyz")
 #define GA_MAX_AGE		4
 
 

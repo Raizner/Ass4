@@ -1,20 +1,10 @@
-﻿Build started 5/8/2015 4:32:05 PM.
+﻿Build started 5/8/2015 4:51:50 PM.
      1>Project "C:\Users\yraizner\Documents\GitHub\Ass4\NKnapsacks\Ilands\Ilands.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Islands.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Crypt.cpp Strings.cpp
-         Crypt.cpp
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(206): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(208): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(211): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(223): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(225): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(241): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(243): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(253): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\crypt.cpp(329): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
-         Compiling...
-         Strings.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Islands.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Islands.cpp
+         Islands.cpp
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\islands.cpp(3): warning C4627: '#include "Crypt.cpp"': skipped when looking for precompiled header use
+                 Add directive to 'stdafx.h' or rebuild precompiled header
      1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\strings.cpp(206): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\strings.cpp(208): warning C4018: '>' : signed/unsigned mismatch
      1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\strings.cpp(211): warning C4018: '<' : signed/unsigned mismatch
@@ -24,7 +14,23 @@
      1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\strings.cpp(243): warning C4018: '>=' : signed/unsigned mismatch
      1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\strings.cpp(253): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
      1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\strings.cpp(329): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(197): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(199): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(202): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(216): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(218): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(233): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(235): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(243): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\queens.cpp(388): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(263): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(274): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(275): warning C4101: 'spos' : unreferenced local variable
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(364): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(366): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(382): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(384): warning C4018: '>=' : signed/unsigned mismatch
+     1>c:\users\yraizner\documents\github\ass4\nknapsacks\ilands\knapsack.cpp(437): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\yraizner\Documents\GitHub\Ass4\NKnapsacks\Debug\Islands.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\yraizner\Documents\GitHub\Ass4\NKnapsacks\Debug\Islands.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\yraizner\Documents\GitHub\Ass4\NKnapsacks\Debug\Islands.lib" /MACHINE:X86 Debug\CeaserCypher.obj
          Debug\Crypt.obj
@@ -39,4 +45,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.50
+Time Elapsed 00:00:01.61
