@@ -17,6 +17,7 @@ public:
 
 	ifstream hostRefernceFile;
 	map<int, double> lettersOcc;
+	map<string,double> lettersStatistics;
 	map<string, double> monogramFre;
 	
 	map<string, double> bigramsFreIncludingSpaces;
@@ -36,6 +37,7 @@ public:
 	void parsetMonogramFre();
 	void parseBigramFrequency(map<string, double>&);
 	void parseTriagrmsFrequency(map<string, double>&);
+	void createStatistics(const string& fileName);
 
 private:
 

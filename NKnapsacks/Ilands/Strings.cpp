@@ -39,16 +39,6 @@ extern int iteratorOfRuns;
 
 
 
-struct ga_struct 
-{
-	string str;						// the string
-	int board[NUMBER_OF_QUEENS];						// the string
-	unsigned int fitness;			// its fitness
-	int age;
-	int weight[NUMBER_OF_SACKS];
-	int bag[NUMBER_OF_OBJECTS];
-	unsigned int knapsackFitness[NUMBER_OF_SACKS];
-};
 
 typedef vector<ga_struct> ga_vector;// for brevity
 

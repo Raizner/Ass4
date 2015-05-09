@@ -31,7 +31,7 @@ void CeaserCypher::createCypheredText(){
 				encryptedLine[i] = key.find(temp) + 'a';
 			}
 		}
-		this->ofs << encryptedLine;
+		this->ofs << encryptedLine << endl;
 	}
 	textFile.close();
 	ofs.close();

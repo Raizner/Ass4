@@ -1,11 +1,13 @@
 #ifndef _ISLAND_H
+#define _ISLAND_H
 //#include "MiscHeader.h"
 //#include "Strings.cpp"
 //#include "Queens.cpp"
 
+
 #include "knapsack.cpp"
 #include "CeaserCypher.h"
-
+#include "Crypt.cpp"
 
 
 template <class T>
