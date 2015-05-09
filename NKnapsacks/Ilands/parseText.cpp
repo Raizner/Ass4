@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "parseText.h"
-
+#include <algorithm>
 
 
 ParseText
@@ -17,65 +17,6 @@ ParseText
 
 void ParseText::parsetMonogramFre(){
 
-		string line;
-	getline(hostRefernceFile, line); 
-
-	while (true)
-	{
-		if (line.empty())
-		{
-			break;
-		}
-
-		 string tempLetter;
-		 double tempFrequency;
-
-		 tempLetter = line.substr(0,1);
-		 tempFrequency = atof(line.substr(13,5).c_str());
-		 monogramFre[tempLetter] = tempFrequency;
-		 //tempLetter = line.substr(24,1);
-		 //tempFrequency = atof(line.substr(37,4).c_str());
-		 //monogramFre[tempLetter] = tempFrequency;
-
-		 getline(hostRefernceFile, line); 
-
-	}
-
-
-
-
-
-}
-	void ParseText::parseBigramFrequency(map<string, double>& input){
-	
-			string line;
-	getline(hostRefernceFile, line); 
-
-	while (true)
-	{
-		if (line.empty())
-		{
-			break;
-		}
-
-		 string tempLetter;
-		 double tempFrequency;
-
-		 tempLetter = line.substr(1,2);
-		 tempFrequency = stod(line.substr(14,5));
-		 input[tempLetter] = tempFrequency;
-		 tempLetter = line.substr(24,2);
-		 tempFrequency = stod(line.substr(37,5));
-		 input[tempLetter] = tempFrequency;
-		 tempLetter = line.substr(47,2);
-		 tempFrequency = stod(line.substr(60,5));
-		 input[tempLetter] = tempFrequency;
-		 getline(hostRefernceFile, line); 
-	
-	}
-}
-
-	void ParseText::parseTriagrmsFrequency(map<string, double>& input){
 	string line;
 	getline(hostRefernceFile, line); 
 
@@ -86,23 +27,117 @@ void ParseText::parsetMonogramFre(){
 			break;
 		}
 
-		 string tempLetter;
-		 double tempFrequency;
+		string tempLetter;
+		double tempFrequency;
 
-		 tempLetter = line.substr(0,3);
-		 tempFrequency = stod(line.substr(14,5));
-		 input[tempLetter] = tempFrequency;
-		 tempLetter = line.substr(23,3);
-		 tempFrequency = stod(line.substr(37,5));
-		 input[tempLetter] = tempFrequency;
-		 tempLetter = line.substr(46,3);
-		 tempFrequency = stod(line.substr(60,5));
-		 input[tempLetter] = tempFrequency;
-		 getline(hostRefernceFile, line); 
-	
-	}
+		tempLetter = line.substr(0,1);
+		tempFrequency = atof(line.substr(13,5).c_str());
+		std::transform(tempLetter.begin(), tempLetter.end(), tempLetter.begin(), ::tolower);
+		monogramFre[tempLetter] = tempFrequency;
+		//tempLetter = line.substr(24,1);
+		//tempFrequency = atof(line.substr(37,4).c_str());
+		//monogramFre[tempLetter] = tempFrequency;
+
+		getline(hostRefernceFile, line); 
+
 	}
 
+
+
+
+
+}
+void ParseText::parseBigramFrequency(map<string, double>& input){
+
+	string line;
+	getline(hostRefernceFile, line); 
+
+	while (true)
+	{
+		if (line.empty())
+		{
+			break;
+		}
+
+		string tempLetter;
+		double tempFrequency;
+
+		tempLetter = line.substr(1,2);
+		tempFrequency = stod(line.substr(14,5));
+		std::transform(tempLetter.begin(), tempLetter.end(), tempLetter.begin(), ::tolower);
+		input[tempLetter] = tempFrequency;
+		tempLetter = line.substr(24,2);
+		tempFrequency = stod(line.substr(37,5));
+		std::transform(tempLetter.begin(), tempLetter.end(), tempLetter.begin(), ::tolower);
+		input[tempLetter] = tempFrequency;
+		tempLetter = line.substr(47,2);
+		tempFrequency = stod(line.substr(60,5));
+		std::transform(tempLetter.begin(), tempLetter.end(), tempLetter.begin(), ::tolower);
+		input[tempLetter] = tempFrequency;
+		getline(hostRefernceFile, line); 
+
+	}
+}
+
+void ParseText::parseTriagrmsFrequency(map<string, double>& input){
+	string line;
+	getline(hostRefernceFile, line); 
+
+	while (true)
+	{
+		if (line.empty())
+		{
+			break;
+		}
+
+		string tempLetter;
+		double tempFrequency;
+
+		tempLetter = line.substr(0,3);
+		tempFrequency = stod(line.substr(14,5));
+		std::transform(tempLetter.begin(), tempLetter.end(), tempLetter.begin(), ::tolower);
+		input[tempLetter] = tempFrequency;
+		tempLetter = line.substr(23,3);
+		tempFrequency = stod(line.substr(37,5));
+		std::transform(tempLetter.begin(), tempLetter.end(), tempLetter.begin(), ::tolower);
+		input[tempLetter] = tempFrequency;
+		tempLetter = line.substr(46,3);
+		tempFrequency = stod(line.substr(60,5));
+		std::transform(tempLetter.begin(), tempLetter.end(), tempLetter.begin(), ::tolower);
+		input[tempLetter] = tempFrequency;
+		getline(hostRefernceFile, line); 
+
+	}
+}
+
+
+
+void ParseText::createStatistics(const string& fileName){
+
+	ifstream hostRefernceFile;
+	hostRefernceFile.open(fileName);
+	string line;
+	int counter =0;
+	while (getline(hostRefernceFile, line)){
+		std::transform(line.begin(), line.end(), line.begin(), ::tolower);
+		for(int i=0;i<line.length();i++){
+			char temp1 = line[i];
+			if ((temp1 >= 'a' && temp1 <=  'z') || temp1 == ' ')
+			{
+				lettersStatistics[line.substr(i,1)]+=1;
+				counter++;
+			}
+			
+		}
+	}
+	for(map<string,double>::iterator iterator = lettersStatistics.begin(); iterator != lettersStatistics.end(); iterator++) {
+		iterator->second=(iterator->second/(double)counter)*100;
+	}
+
+
+	hostRefernceFile.close();
+	return;
+}
 
 void ParseText::parseTextLunch(const string& fileName){
 
@@ -155,6 +190,8 @@ void ParseText::parseTextLunch(const string& fileName){
 
 	}
 
+	hostRefernceFile.close();
+
 }
 
 
@@ -170,13 +207,13 @@ void ParseText::parsetLettersOcc(){
 			break;
 		}
 
-		 int tempLetter;
-		 double tempFrequency;
+		int tempLetter;
+		double tempFrequency;
 
-		 tempLetter = atoi(line.substr(1,2).c_str());
-		 tempFrequency = atof(line.substr(14,4).c_str());
-		 lettersOcc[tempLetter] = tempFrequency;
-		 getline(hostRefernceFile, line); 
+		tempLetter = atoi(line.substr(1,2).c_str());
+		tempFrequency = atof(line.substr(14,4).c_str());
+		lettersOcc[tempLetter] = tempFrequency;
+		getline(hostRefernceFile, line); 
 
 	}
 

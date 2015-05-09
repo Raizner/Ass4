@@ -39,16 +39,16 @@ extern int iteratorOfRuns;
 
 
 
-struct ga_struct 
-{
-	string str;						// the string
-	int board[NUMBER_OF_QUEENS];						// the string
-	unsigned int fitness;			// its fitness
-	int age;
-	int weight[NUMBER_OF_SACKS];
-	int bag[NUMBER_OF_OBJECTS];
-	unsigned int knapsackFitness[NUMBER_OF_SACKS];
-};
+//struct ga_struct 
+//{
+//	string str;						// the string
+//	int board[NUMBER_OF_QUEENS];						// the string
+//	unsigned int fitness;			// its fitness
+//	int age;
+//	int weight[NUMBER_OF_SACKS];
+//	int bag[NUMBER_OF_OBJECTS];
+//	unsigned int knapsackFitness[NUMBER_OF_SACKS];
+//};
 
 typedef vector<ga_struct> ga_vector;// for brevity
 
@@ -108,7 +108,7 @@ public:
 		stats = new Stats("c:\\temp\\text\\encryptedText.txt", *parser);
 	}
 
-	void initialize(int selection, int survivability, int populationPerIsland, double elitismeRate, int epocLength, int migrationFromEachIslands, Stats &stats){
+	void initialize(int selection, int survivability, int populationPerIsland, double elitismeRate, int epocLength, int migrationFromEachIslands){
 
 		this->GA_POPSIZE = populationPerIsland;
 		GA_ELITRATE = elitismeRate;
@@ -116,7 +116,7 @@ public:
 		this->migrationFromEachIslands = migrationFromEachIslands;
 		this->selection = selection;
 		this->survivability = survivability;		
-		this->stats = &stats;
+		//this->stats = new St;
 		return;
 
 	}
@@ -136,19 +136,26 @@ public:
 			citizen.age = 0;
 			citizen.fitness = 0;
 			citizen.str.erase();
-
-			for (int j=0; j<tsize; j++)
+			citizen.str = GA_TARGET;
+			if (i % 50 == 0 )
 			{
-				citizen.str = GA_TARGET;
-				int tempFirst = rand() % tsize;
-				int tempSecond = rand() % tsize;
-				char temp = citizen.str[tempFirst];
+				//citizen.str = "nyrfcetpxsuawdgikhqjzombvl";
+			}else
+			{
+				for (int j=0; j<tsize; j++)
+				{
 
-				citizen.str[tempFirst] = citizen.str[tempSecond];
-				citizen.str[tempSecond] = citizen.str[tempFirst];
+					int tempFirst = rand() % tsize;
+					int tempSecond = rand() % tsize;
+					char temp = citizen.str[tempFirst];
 
+					citizen.str[tempFirst] = citizen.str[tempSecond];
+					citizen.str[tempSecond] = temp;
+
+
+
+				}
 			}
-
 			population.push_back(citizen);
 		}
 
@@ -172,7 +179,7 @@ public:
 	}
 
 	static bool fitness_sort(ga_struct x, ga_struct y) 
-	{ return (x.fitness < y.fitness); }
+	{ return (x.fitness > y.fitness); }
 
 	void sort_by_fitness(ga_vector &population)
 	{ sort(population.begin(), population.end(), fitness_sort); }
@@ -207,11 +214,20 @@ public:
 
 	void mutate(ga_struct &member)
 	{
-		int tsize = GA_TARGET.size();
-		int ipos = rand() % tsize;
-		int delta = (rand() % 90) + 32; 
+		//int tsize = GA_TARGET.size();
+		//int ipos = rand() % tsize;
+		//int delta = (rand() % 90) + 32; 
 
-		member.str[ipos] = ((member.str[ipos] + delta) % 122);
+		//member.str[ipos] = ((member.str[ipos] + delta) % 122);
+		int tsize = GA_TARGET.size();
+		int tempFirst = rand() % tsize;
+		int tempSecond = rand() % tsize;
+		char temp = member.str[tempFirst];
+
+		member.str[tempFirst] = member.str[tempSecond];
+		member.str[tempSecond] = temp;
+
+
 	}
 
 	void calculateFitnessSum(){
@@ -261,6 +277,36 @@ public:
 
 	}
 
+	void fixKeyCitizen( ga_struct& citizen){
+		int arrOfLetters[26]={0};
+		for(int i=0;i<GA_TARGET.size();i++){
+			arrOfLetters[citizen.str[i]-'a']++;
+		}
+		for(int i=0;i<GA_TARGET.size();i++){
+			if(arrOfLetters[i]==0){
+
+				for(int j=0;j<GA_TARGET.size();j++){
+					if(arrOfLetters[j] > 1){
+
+						for(int k=0;k<GA_TARGET.size();k++){
+
+							if( citizen.str[k] == ( j + 'a') ){
+								citizen.str[k]=( i + 'a');
+								arrOfLetters[j]--;
+								arrOfLetters[i]++;
+								break;
+							}
+						}
+						break;
+
+					}
+				}
+
+			}
+		}
+
+	}
+
 	void mate(ga_vector &population, ga_vector &buffer)
 	{
 		int esize = GA_POPSIZE * GA_ELITRATE;
@@ -295,12 +341,29 @@ public:
 				population[i2].str.substr(spos, tsize - spos);
 			buffer[i].age=0;
 
+			fixKeyCitizen(buffer[i]);
+
 			if (rand() < GA_MUTATION) mutate(buffer[i]);
 		}
 	}
 
 	void print_best(ga_vector &gav)
-	{ cout << "Best: " << gav[0].str << " (" << gav[0].fitness << ")" << endl; }
+	{ 
+		int hammingTemp = 0;
+		string realKey = "nyrfcetpxsuawdgikhqjzombvl";
+		for (int i = 0; i < GA_TARGET.size(); i++)
+		{
+			if (realKey[i] == gav[0].str[i])
+			{
+				++hammingTemp;
+			}
+		}
+		cout << "Best: " << gav[0].str << " (" << gav[0].fitness << "). bulls eye: "<< hammingTemp << endl; 
+
+		//std::cout << "Best: " << gav[0].str << " (" << gav[0].fitness << ")" << endl; 
+
+
+	}
 
 	void swap(ga_vector *&population,
 		ga_vector *&buffer)
@@ -316,7 +379,7 @@ public:
 		srand(unsigned(time(NULL)));
 
 		if (firstTimeToInitiatePopulation){
-			
+
 			firstTimeToInitiatePopulation = false;
 			init_population(pop_alpha, pop_beta);
 			population = &pop_alpha;
@@ -326,10 +389,10 @@ public:
 		for (int i=0; i<GA_MAXITER; i++) {
 			calc_fitness(*population);		// calculate fitness
 			sort_by_fitness(*population);	// sort them
-			cout << "it: " << iteratorOfRuns ++ << " -- ";
+			std::cout << "it: " << iteratorOfRuns ++ << " -- ";
 			print_best(*population);		// print the best one
 
-			if ((*population)[0].fitness == 0) return true;
+			//if ((*population)[0].fitness == 0) return true;
 
 			mate(*population, *buffer);		// mate the population together
 			swap(population, buffer);		// swap buffers
@@ -342,7 +405,7 @@ public:
 
 		if (citizensToAdd.capacity() < migrationFromEachIslands){
 
-			cout << "There was an error in SetForReplacment, citizensToAdd.capacity: " << citizensToAdd.capacity() << endl << flush ;
+			std::cout << "There was an error in SetForReplacment, citizensToAdd.capacity: " << citizensToAdd.capacity() << endl << flush ;
 
 			return;
 		}

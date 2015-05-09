@@ -1,6 +1,6 @@
 // Ilands.cpp : Defines the entry point for the console application.
 //
-#include "Crypt.cpp"
+
 #include "stdafx.h"
 #include "Islands.h"
 #include <stdarg.h>
@@ -87,14 +87,14 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 
-	/*ParseText parser;
+	//ParseText parser;
 
-	parser.parseTextLunch("C:\\temp\\freq.txt");
-	string temp = "nyrfcetpxsuawdgikhqjzombvl";
-	CeaserCypher cc(temp, "c:\\temp\\text\\input.txt", "c:\\temp\\text\\encryptedText.txt");
-	cc.createCypheredText();
+	//parser.parseTextLunch("C:\\temp\\freq.txt");
+	//string temp = "nyrfcetpxsuawdgikhqjzombvl";
+	//CeaserCypher cc(temp, "c:\\temp\\text\\input.txt", "c:\\temp\\text\\encryptedText.txt");
+	//cc.createCypheredText();
 
-	return 0;*/
+
 
 	/*
 
@@ -109,8 +109,21 @@ int _tmain(int argc, _TCHAR* argv[])
 	2 - GENITOR
 
 	*/
-	Stats stat("c:\\temp\\text.txt");
-	Islands<knapsack> newIslands(3, 2000, 0.1f, 50, 0,0,1,1,1,2,1);
+	//Stats stat("c:\\temp\\text.txt");\\
+
+
+	//ParseText parser;
+
+	//parser.parseTextLunch("C:\\temp\\freq.txt");
+	//string temp = "nyrfcetpxsuawdgikhqjzombvl";
+	//CeaserCypher cc(temp, "c:\\temp\\text\\input.txt", "c:\\temp\\text\\encryptedText.txt");
+	//cc.createCypheredText();
+
+	//return 0;
+
+	
+
+	Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
 
 	newIslands.evolve();
 
