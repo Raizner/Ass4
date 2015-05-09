@@ -109,7 +109,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	2 - GENITOR
 
 	*/
-	Stats stat("c:\\temp\\text.txt");
+//	Stats stat("c:\\temp\\text.txt");
 	Islands<knapsack> newIslands(3, 2000, 0.1f, 50, 0,0,1,1,1,2,1);
 
 	newIslands.evolve();
