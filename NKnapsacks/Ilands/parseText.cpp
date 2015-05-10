@@ -139,6 +139,44 @@ void ParseText::createStatistics(const string& fileName){
 	return;
 }
 
+int ParseText::getGCDFromList(list <int> listOfInt){
+	int answer=0;
+	list<int> tempList;
+	int ans=0,flag=0; // N denotes length of array
+	turnIndeciesIntoNumbers(listOfInt,tempList);
+	for (list<int>::const_iterator iterator = tempList.begin(); iterator != tempList.end(); ++iterator) 
+	{
+		ans=gcd(ans,*iterator);
+	}
+	return ans;
+}
+
+
+void ParseText::turnIndeciesIntoNumbers(list <int> listOfInt,list <int> realAnswer){
+	
+	for (list<int>::const_iterator iterator = listOfInt.end(); iterator != listOfInt.begin(); --iterator)
+	{
+		int tempIndex = *iterator;
+		--iterator;
+		int tempIndex2 = *iterator;
+		int number = tempIndex-tempIndex2;
+		++iterator;
+		realAnswer.push_back(number);
+	}
+}
+
+int ParseText::gcd(int a,int b)
+{
+    int t;
+    while(a)
+    {
+        t = a;
+        a = b%a;
+        b = t;
+    }
+    return b;
+}
+
 void ParseText::parseTextLunch(const string& fileName){
 
 
