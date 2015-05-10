@@ -27,6 +27,8 @@ public:
 
 	map<string, double> triagrmsFreIncludingSpaces;
 	map<string, double> triagrmsFreIncludingNoSpaces;
+
+	map<string, list<int>> gcdKassiski;
 	
 	ParseText
 ();
@@ -36,8 +38,11 @@ public:
 	void parsetLettersOcc();
 	void parsetMonogramFre();
 	void parseBigramFrequency(map<string, double>&);
+	int getGCDFromList(list<int> listOfInt);
 	void parseTriagrmsFrequency(map<string, double>&);
 	void createStatistics(const string& fileName);
+
+	int calculateGCD();
 
 private:
 

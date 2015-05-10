@@ -194,6 +194,32 @@ void ParseText::parseTextLunch(const string& fileName){
 
 }
 
+int ParseText::calculateGCD(){
+
+	ifstream toGCDINT;
+	hostRefernceFile.open("c:\\temp\\text\\vigener.txt");
+	string line;
+	int numberOfLine = 0;
+	while (getline(hostRefernceFile, line)){
+		for (int i = 0; i < line.size() - 3; i++)
+		{
+			string goToMap = line.substr(i, 3);
+			gcdKassiski[goToMap].push_back(numberOfLine+i);
+		}
+		numberOfLine += line.size();
+	}
+	
+	map<string, list<int>>::iterator biggestSubString = gcdKassiski.begin();
+	for (map<string, list<int>>::iterator it ; it != gcdKassiski.end() ; it++)
+	{
+		if (it->second.size() > biggestSubString->second.size())
+		{
+			biggestSubString = it;
+		}
+	}
+
+	return getGCDFromList(biggestSubString->second);
+}
 
 void ParseText::parsetLettersOcc(){
 
