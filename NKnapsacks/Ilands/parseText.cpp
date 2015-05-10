@@ -248,15 +248,18 @@ int ParseText::calculateGCD(){
 	}
 	
 	map<string, list<int>>::iterator biggestSubString = gcdKassiski.begin();
-	for (map<string, list<int>>::iterator it ; it != gcdKassiski.end() ; it++)
+	for (map<string, list<int>>::iterator it = gcdKassiski.begin(); it != gcdKassiski.end() ; it++)
 	{
 		if (it->second.size() > biggestSubString->second.size())
 		{
 			biggestSubString = it;
 		}
 	}
-
-	return getGCDFromList(biggestSubString->second);
+	if (biggestSubString != gcdKassiski.end() )
+	{
+		return getGCDFromList(biggestSubString->second);
+	}
+	return -1;
 }
 
 void ParseText::parsetLettersOcc(){
