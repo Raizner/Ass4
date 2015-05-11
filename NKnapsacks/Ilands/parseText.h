@@ -41,13 +41,17 @@ public:
 	int getGCDFromList(list<int> listOfInt);
 	void parseTriagrmsFrequency(map<string, double>&);
 	void createStatistics(const string& fileName);
-	void turnIndeciesIntoNumbers(list <int> listOfInt,list <int> realAnswer);
+	void turnIndeciesIntoNumbers(list <int> listOfInt,list <int> &realAnswer);
 	int gcd(int a,int b);
 	int calculateGCD();
 private:
 
 };
 
+bool map::operator<(const list<int>& s1, const list<int>& s2){
+	return false;
+
+}
 
 
 

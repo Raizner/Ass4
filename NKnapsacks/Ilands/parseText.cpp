@@ -152,9 +152,9 @@ int ParseText::getGCDFromList(list <int> listOfInt){
 }
 
 
-void ParseText::turnIndeciesIntoNumbers(list <int> listOfInt,list <int> realAnswer){
+void ParseText::turnIndeciesIntoNumbers(list <int> listOfInt,list <int> &realAnswer){
 	
-	for (list<int>::const_iterator iterator = listOfInt.end(); iterator != listOfInt.begin(); --iterator)
+	for (list<int>::const_iterator iterator = --listOfInt.end(); iterator != listOfInt.begin(); --iterator)
 	{
 		int tempIndex = *iterator;
 		--iterator;
@@ -239,27 +239,48 @@ int ParseText::calculateGCD(){
 	string line;
 	int numberOfLine = 0;
 	while (getline(hostRefernceFile, line)){
+		std::transform(line.begin(), line.end(), line.begin(), ::tolower);
 		for (int i = 0; i < line.size() - 3; i++)
 		{
 			string goToMap = line.substr(i, 3);
-			gcdKassiski[goToMap].push_back(numberOfLine+i);
+			bool addTOTable = true;
+			for (int j = 0; j < 3; j++)
+			{
+				if (!((goToMap[j] >= 'a' && goToMap[j] <=  'z') || (goToMap[j] >= 'A' && goToMap[j] <=  'Z'))){
+					addTOTable = false;
+				}
+			}
+			if (addTOTable)
+			{
+				gcdKassiski[goToMap].push_back(numberOfLine+i);
+			}
+			
 		}
 		numberOfLine += line.size();
 	}
 	
 	map<string, list<int>>::iterator biggestSubString = gcdKassiski.begin();
+	int gcd = 0;
 	for (map<string, list<int>>::iterator it = gcdKassiski.begin(); it != gcdKassiski.end() ; it++)
 	{
-		if (it->second.size() > biggestSubString->second.size())
+		//if (it->second.size() > biggestSubString->second.size())
+		//{
+		//	biggestSubString = it;
+		//}
+		int temp = getGCDFromList(it->second);
+		if (temp > gcd && temp < 8)
 		{
+			gcd =  temp;
 			biggestSubString = it;
 		}
+
 	}
-	if (biggestSubString != gcdKassiski.end() )
-	{
-		return getGCDFromList(biggestSubString->second);
-	}
-	return -1;
+	return gcd;
+	//if (biggestSubString != gcdKassiski.end() )
+	//{
+	//	return getGCDFromList(biggestSubString->second);
+	//}
+	//return -1;
 }
 
 void ParseText::parsetLettersOcc(){
