@@ -8,6 +8,50 @@
 #include "Stats.h"
 
 
+
+namespace {
+
+	void devideToFIlesByGCD(int numberOfFiles){
+
+		string* filesString = new string[numberOfFiles];
+		for (int i = 0; i < numberOfFiles; i++)
+		{
+			filesString[i] = "";
+		}
+		size_t iNUmber = 0;
+		ifstream toGCDINT;
+		toGCDINT.open("c:\\temp\\text\\vigener.txt");
+		string line;
+		int numberOfLine = 0;
+		while (getline(toGCDINT, line)){
+			std::transform(line.begin(), line.end(), line.begin(), ::tolower);
+
+			for (int i = 0; i < line.size(); i++)
+			{
+				if (line[i] != ' ')
+				{					
+					filesString[iNUmber % numberOfFiles] += line[i];
+
+					++iNUmber;
+
+				}
+
+			}
+
+		}
+
+		for (int i = 0; i < numberOfFiles; i++)
+		{
+			string filename = "c:\\temp\\" + to_string(i) + ".txt";
+			ofstream writeToFile(filename);
+			writeToFile << filesString[i];
+			writeToFile.close();
+		}
+
+
+
+	}
+}
 int iteratorOfRuns=0;
 
 template <class T>
@@ -121,12 +165,14 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//return 0;
 
+	devideToFIlesByGCD(5);
+
 	ParseText parser;
 	int GCD = parser.calculateGCD();
 
 	cout << "VERY FAST GCD: " << GCD << endl;
 	//Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
-//
+	//
 	//newIslands.evolve();
 
 	//return 0;
