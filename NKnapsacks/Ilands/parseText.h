@@ -48,11 +48,6 @@ private:
 
 };
 
-bool map::operator<(const list<int>& s1, const list<int>& s2){
-	return false;
-
-}
-
 
 
 

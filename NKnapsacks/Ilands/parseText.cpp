@@ -127,7 +127,7 @@ void ParseText::createStatistics(const string& fileName){
 				lettersStatistics[line.substr(i,1)]+=1;
 				counter++;
 			}
-			
+
 		}
 	}
 	for(map<string,double>::iterator iterator = lettersStatistics.begin(); iterator != lettersStatistics.end(); iterator++) {
@@ -153,7 +153,7 @@ int ParseText::getGCDFromList(list <int> listOfInt){
 
 
 void ParseText::turnIndeciesIntoNumbers(list <int> listOfInt,list <int> &realAnswer){
-	
+
 	for (list<int>::const_iterator iterator = --listOfInt.end(); iterator != listOfInt.begin(); --iterator)
 	{
 		int tempIndex = *iterator;
@@ -167,14 +167,14 @@ void ParseText::turnIndeciesIntoNumbers(list <int> listOfInt,list <int> &realAns
 
 int ParseText::gcd(int a,int b)
 {
-    int t;
-    while(a)
-    {
-        t = a;
-        a = b%a;
-        b = t;
-    }
-    return b;
+	int t;
+	while(a)
+	{
+		t = a;
+		a = b%a;
+		b = t;
+	}
+	return b;
 }
 
 void ParseText::parseTextLunch(const string& fileName){
@@ -254,28 +254,52 @@ int ParseText::calculateGCD(){
 			{
 				gcdKassiski[goToMap].push_back(numberOfLine+i);
 			}
-			
+
 		}
 		numberOfLine += line.size();
 	}
-	
-	map<string, list<int>>::iterator biggestSubString = gcdKassiski.begin();
-	int gcd = 0;
-	for (map<string, list<int>>::iterator it = gcdKassiski.begin(); it != gcdKassiski.end() ; it++)
+
+	int gcdMaxAfterTenRuns = 0;
+	for (int i = 0; i < 350; i++)
 	{
-		//if (it->second.size() > biggestSubString->second.size())
-		//{
-		//	biggestSubString = it;
-		//}
-		int temp = getGCDFromList(it->second);
-		if (temp > gcd && temp < 8)
-		{
-			gcd =  temp;
-			biggestSubString = it;
+		map<string, list<int>>::iterator biggestSubString = gcdKassiski.begin();
+		for (map<string, list<int>>::iterator it = gcdKassiski.begin(); it != gcdKassiski.end() ; it++){
+
+			if (it->second.size() > biggestSubString->second.size())
+			{
+				biggestSubString = it;
+			}
+
 		}
 
+		int temp = getGCDFromList(biggestSubString->second);
+		gcdKassiski.erase(biggestSubString);
+
+		if (gcdMaxAfterTenRuns < temp)
+		{
+			gcdMaxAfterTenRuns = temp;
+		}
+
+
+
 	}
-	return gcd;
+
+	return gcdMaxAfterTenRuns;
+
+	//map<string, list<int>>::iterator biggestSubString = gcdKassiski.begin();
+	//int gcd = 0;
+	//for (map<string, list<int>>::iterator it = gcdKassiski.begin(); it != gcdKassiski.end() ; it++)
+	//{
+
+	//	int temp = getGCDFromList(it->second);
+	//	if (temp > gcd && temp < 8)
+	//	{
+	//		gcd =  temp;
+	//		biggestSubString = it;
+	//	}
+
+	//}
+	//return gcd;
 	//if (biggestSubString != gcdKassiski.end() )
 	//{
 	//	return getGCDFromList(biggestSubString->second);
