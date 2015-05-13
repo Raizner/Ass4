@@ -52,6 +52,7 @@ namespace {
 
 	}
 }
+
 int iteratorOfRuns=0;
 
 template <class T>
@@ -175,6 +176,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	//
 	//newIslands.evolve();
 
+
+	for(int i=0;i< GCD ; i++ ){
+		Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
+
+		newIslands.islands->setStats("c:\\temp\\"+to_string(i)+".txt");
+	
+		newIslands.evolve();
+	}
 	//return 0;
 }
 
