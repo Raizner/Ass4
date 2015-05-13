@@ -105,7 +105,16 @@ public:
 		fitnessMax=0;
 
 		parser = new ParseText();
-		stats = new Stats("c:\\temp\\text\\encryptedText.txt", *parser);
+		//stats = new Stats("c:\\temp\\text\\encryptedText.txt", *parser);
+	}
+
+	ParseText* getParser(){
+		return this->parser;
+	}
+
+	void setStats(string path){
+		this->stats = new Stats(path,*parser); 
+		return;
 	}
 
 	void initialize(int selection, int survivability, int populationPerIsland, double elitismeRate, int epocLength, int migrationFromEachIslands){

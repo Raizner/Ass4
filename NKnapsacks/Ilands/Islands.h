@@ -8,11 +8,12 @@
 #include "knapsack.cpp"
 #include "CeaserCypher.h"
 #include "Crypt.cpp"
-
+#include <string>
 
 template <class T>
 class Islands{
-	
+
+	public:
 #pragma region members
 
 	T* islands;
@@ -26,7 +27,7 @@ class Islands{
 	
 
 
-public:
+
 
 	Islands(int numberOfIslands, int populationPerIsland, double elitismeRate, int epocLength, int migrationFromEachIsland, ...) ;
 	void evolve();
