@@ -41,14 +41,12 @@ public:
 	int getGCDFromList(list<int> listOfInt);
 	void parseTriagrmsFrequency(map<string, double>&);
 	void createStatistics(const string& fileName);
-	int getGCDFromList(list <int> listOfInt);
-	void turnIndeciesIntoNumbers(list <int> listOfInt,list <int> realAnswer);
+	void turnIndeciesIntoNumbers(list <int> listOfInt,list <int> &realAnswer);
 	int gcd(int a,int b);
 	int calculateGCD();
 private:
 
 };
-
 
 
 

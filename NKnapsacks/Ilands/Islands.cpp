@@ -121,12 +121,14 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//return 0;
 
-	
+	ParseText parser;
+	int GCD = parser.calculateGCD();
 
-	Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
+	cout << "VERY FAST GCD: " << GCD << endl;
+	//Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
+//
+	//newIslands.evolve();
 
-	newIslands.evolve();
-
-	return 0;
+	//return 0;
 }
 
