@@ -367,7 +367,7 @@ public:
 				++hammingTemp;
 			}
 		}
-		cout << "Best: " << gav[0].str << " (" << gav[0].fitness << "). bulls eye: "<< hammingTemp << endl; 
+		cout << "Best: " << gav[0].str << " (" << gav[0].fitness << endl; 
 
 		//std::cout << "Best: " << gav[0].str << " (" << gav[0].fitness << ")" << endl; 
 

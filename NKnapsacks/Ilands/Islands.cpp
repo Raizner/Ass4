@@ -166,11 +166,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//return 0;
 
-	devideToFIlesByGCD(5);
+	
 
 	ParseText parser;
 	int GCD = parser.calculateGCD();
 
+	devideToFIlesByGCD(GCD);
 	cout << "VERY FAST GCD: " << GCD << endl;
 	//Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
 	//
