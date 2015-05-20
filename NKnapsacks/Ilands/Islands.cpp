@@ -56,7 +56,7 @@ namespace {
 int iteratorOfRuns=0;
 
 template <class T>
-void Islands<T>::evolve(){
+int Islands<T>::evolve(){
 
 	while(true){
 
@@ -77,6 +77,12 @@ void Islands<T>::evolve(){
 		}
 	}
 
+	try {
+		return static_cast<int>((*islands->population)[0].fitness);
+	}
+	catch (...) {
+		return 0;
+	}
 }
 
 template <class T>
@@ -166,25 +172,50 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//return 0;
 
-	
+
 
 	ParseText parser;
-	int GCD = parser.calculateGCD();
+	//Kasiski method implementation
+	vector<int> bestPractice;
+	for(int j=2;j<20;j++){
+		devideToFIlesByGCD(j);
+
+		for(int i=0;i< j ; i++ ){
+			Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
+
+			newIslands.islands->setStats("c:\\temp\\"+to_string(i)+".txt");
+
+			bestPractice.push_back(newIslands.evolve());
+		}
+
+	}
+
+	int IC = bestPractice[0];
+
+	Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
+
+	newIslands.islands->setStats("c:\\temp\\"+to_string(IC)+".txt");
+	newIslands.evolve();
+
+
+	/*int GCD = parser.calculateGCD();
+
+
 
 	devideToFIlesByGCD(GCD);
-	cout << "VERY FAST GCD: " << GCD << endl;
+	cout << "VERY FAST GCD: " << GCD << endl;*/
 	//Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
 	//
+
+
 	//newIslands.evolve();
+	//for(int i=0;i< GCD ; i++ ){
+	//	Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
 
+	//	newIslands.islands->setStats("c:\\temp\\"+to_string(i)+".txt");
 
-	for(int i=0;i< GCD ; i++ ){
-		Islands<Crypt> newIslands(1, 1200, 0.1f, 50, 0 , 0 , 0);
-
-		newIslands.islands->setStats("c:\\temp\\"+to_string(i)+".txt");
-	
-		newIslands.evolve();
-	}
+	//	newIslands.evolve();
+	//}
 	//return 0;
 }
 

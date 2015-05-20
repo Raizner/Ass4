@@ -271,7 +271,6 @@ int ParseText::calculateGCD(){
 			}
 
 		}
-
 		int temp = getGCDFromList(biggestSubString->second);
 		gcdKassiski.erase(biggestSubString);
 
@@ -279,8 +278,6 @@ int ParseText::calculateGCD(){
 		{
 			gcdMaxAfterTenRuns = temp;
 		}
-
-
 
 	}
 

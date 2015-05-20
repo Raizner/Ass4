@@ -30,7 +30,7 @@ class Islands{
 
 
 	Islands(int numberOfIslands, int populationPerIsland, double elitismeRate, int epocLength, int migrationFromEachIsland, ...) ;
-	void evolve();
+	int evolve();
 	void MigrationBetweenIslands();
 
 

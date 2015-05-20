@@ -57,7 +57,7 @@ typedef vector<ga_struct> ga_vector;// for brevity
 
 
 class Crypt {
-
+public:
 	int GA_POPSIZE;
 	double GA_ELITRATE;
 	int GA_MAXITER;
@@ -76,7 +76,7 @@ class Crypt {
 
 	Stats* stats;
 	ParseText* parser;
-public:
+
 
 	/*
 
