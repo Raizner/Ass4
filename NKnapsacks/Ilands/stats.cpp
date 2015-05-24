@@ -5,8 +5,8 @@
 
 Stats::Stats(const string& pathToEncryptedFile, ParseText& parser){
 	this->parser = &parser;
-	this->parser->parseTextLunch("C:\\temp\\freq.txt");
-	this->parser->createStatistics("c:\\temp\\text\\inputToStatistcs.txt"); // the parsing of the real text - artyom BOM!!!
+	this->parser->parseTextLunch("text\\freq.txt");
+	this->parser->createStatistics("text\\inputToStatistcs.txt"); // the parsing of the real text - artyom BOM!!!
 	this->counter=0;
 	ifstream textFile;
 	string line;
